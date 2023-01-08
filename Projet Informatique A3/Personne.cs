@@ -8,7 +8,7 @@ namespace Projet_Informatique_A3
 {
     abstract class Personne
     {
-
+        int numero_ss;
         string nom;
         string prenom;
         DateTime date_de_naissance;
@@ -16,6 +16,10 @@ namespace Projet_Informatique_A3
         string adresse_mail;
         string telephone;
 
+        public int Numero_ss
+        {
+            get { return numero_ss; }
+        }
 
         public string Nom
         {
@@ -58,8 +62,9 @@ namespace Projet_Informatique_A3
 
 
 
-        public Personne(string nom, string prenom, DateTime date_de_naissance, string adresse_postale, string adresse_mail, string telephone)
+        public Personne(int numero_ss, string nom, string prenom, DateTime date_de_naissance, string adresse_postale, string adresse_mail, string telephone)
         {
+            this.numero_ss = numero_ss;
             this.nom = nom;
             this.prenom = prenom;
             this.date_de_naissance = date_de_naissance;

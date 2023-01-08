@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace Projet_Informatique_A3
 {
-    internal class Client
+    internal class Client : Personne
     {
+
+        public Client(int numero_ss, string nom, string prenom,
+            DateTime date_de_naissance, string adresse_postale, string adresse_mail, string telephone)
+            : base(numero_ss, nom, prenom, date_de_naissance, adresse_postale, adresse_mail, telephone)
+        {
+
+      
+
+        }
+
+
+
+
+
     }
 }

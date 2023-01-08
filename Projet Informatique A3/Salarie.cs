@@ -13,10 +13,21 @@ namespace Projet_Informatique_A3
         string poste;
         int salaire;
 
+        public string Poste
+        {
+            get { return poste; }
+            set { poste = value; }
+        }
 
-        public Salarie(string nom, string prenom, 
+        public int Salaire
+        {
+            get { return salaire; }
+            set { salaire = value; }
+        }
+
+        public Salarie(int numero_ss, string nom, string prenom, 
             DateTime date_de_naissance, string adresse_postale, string adresse_mail, string telephone, DateTime date_entree_entreprise, string poste, int salaire)
-            : base(nom, prenom,date_de_naissance, adresse_postale, adresse_mail, telephone)
+            : base(numero_ss, nom, prenom,date_de_naissance, adresse_postale, adresse_mail, telephone)
         {
 
             this.date_entree_entreprise = date_entree_entreprise;
