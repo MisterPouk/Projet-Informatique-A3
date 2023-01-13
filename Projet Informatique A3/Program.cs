@@ -1,4 +1,6 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.ComponentModel;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Projet_Informatique_A3
 {
@@ -6,14 +8,13 @@ namespace Projet_Informatique_A3
     {
         static void Main(string[] args)
         {
-
+            Console.WriteLine("================================");
             Console.WriteLine("Logiciel de gestion Transconnect");
             Console.WriteLine("================================");
 
             // Initialisation des clients depuis un fichier .txt
 
-            
-
+            #region Lecture des clients
 
             List<Client> liste_clients = new List<Client>();
 
@@ -45,28 +46,77 @@ namespace Projet_Informatique_A3
             }
 
 
-
-            Afficher_Clients(liste_clients);
-
+            #endregion
 
 
+            bool fin = false;
+
+            int selection;
+
+            Console.Clear();
+
+
+            while(fin != true)
+            {
+                
+
+                Console.WriteLine("Sélectionnez une option: \n" + "1) Gestion des clients \n" + "9) Quitter le programme \n");
+
+                selection = Convert.ToInt32(Console.ReadLine());
+                switch (selection)
+                {
+                    case 1:
+                        Afficher_Clients(liste_clients);
+                        Supprimer_Client(liste_clients, "Dupond");
 
 
 
 
 
+                        break;
+
+                    case 9:
+                        fin = true;
+
+
+                        break;
+                }
+
+
+            }
 
             
 
 
 
-            
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 
         }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -78,6 +128,24 @@ namespace Projet_Informatique_A3
                 Console.WriteLine(client.ToString() + "\n --------------------------");
             }
         }
+
+        public static void Supprimer_Client(List<Client> liste_clients, string nom)
+        {
+            for(int i = 0; i < liste_clients.Count; i++)
+            {
+                if (liste_clients[i].Nom == nom) liste_clients.Remove(liste_clients[i]);
+
+            }
+            
+        }
+
+        public static void Ajouter_Client(List<Client> liste_clients)
+        {
+
+        }
+
+
+
 
 
 
