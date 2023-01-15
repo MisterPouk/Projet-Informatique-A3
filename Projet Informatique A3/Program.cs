@@ -42,6 +42,7 @@ namespace Projet_Informatique_A3
             {
                 Console.WriteLine("L'erreur est : " + exception.Message);
             }
+            lire.Close();
 
 
             #endregion
@@ -126,8 +127,34 @@ namespace Projet_Informatique_A3
 
                         
                         Console.Clear();
+                        Afficher_Clients(liste_clients);
 
-                        Afficher_Clients_Tri_Nom(liste_clients);
+                        Console.WriteLine("Voulez vous trier les clients par ordre alphabétique de nom ? \n1) Oui \n2) Non");
+                        selection_menu_client = Convert.ToInt32(Console.ReadLine());
+                        if (selection_menu_client == 1)
+                        {
+                            Afficher_Clients_Tri_Nom(liste_clients);
+
+
+                        }
+
+                        
+
+                        Console.Clear();
+                        Afficher_Clients(liste_clients);
+
+                        Console.WriteLine("Voulez vous trier les clients par ordre alphabétique de ville ? \n1) Oui \n2) Non");
+                        selection_menu_client = Convert.ToInt32(Console.ReadLine());
+                        if (selection_menu_client == 1)
+                        {
+                            Afficher_Clients_Tri_Ville(liste_clients);
+
+
+                        }
+
+                        Console.Clear();
+                        Afficher_Clients(liste_clients);
+
 
 
 
@@ -142,26 +169,22 @@ namespace Projet_Informatique_A3
 
 
             }
-
-            
-
+            // Sauvegarde des modifications apportées au clients
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+            try
+            {
+                using (StreamWriter writer = new StreamWriter("Clients.txt"))
+                {
+                    writer.Write(Sauvegarder_Clients(liste_clients));
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Write(e);
+            }
 
 
 
@@ -209,11 +232,27 @@ namespace Projet_Informatique_A3
         public static void Afficher_Clients_Tri_Nom(List<Client> liste_clients)
         {
             liste_clients.Sort();
-            liste_clients.ForEach(x => Console.WriteLine(x + "\n"));
-            Console.WriteLine("\n");
+
+            Afficher_Clients(liste_clients);
         }
 
+        public static void Afficher_Clients_Tri_Ville(List<Client> liste_clients)
+        {
+            liste_clients.Sort((x,y) => x.Ville.CompareTo(y.Ville));
+            
+        }
 
+        public static string Sauvegarder_Clients(List<Client> liste_clients)
+        {
+            string save = "";
+
+            foreach (Client client in liste_clients)
+            {
+                save += client.Numero_ss + ";" + client.Nom + ";" + client.Prenom + ";" + client.Date_de_naissance + ";" + client.Adresse_postale + ";" + client.Adresse_mail + ";" + client.Telephone + ";\n";
+                
+            }
+            return save;
+        }
 
 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projet_Informatique_A3
 {
-    internal class Client : Personne, IComparable
+    internal class Client : Personne, IComparable<Client>
     {
        
         
@@ -27,9 +27,9 @@ namespace Projet_Informatique_A3
             
         }
 
-        public int CompareTo(object obj)
+        public int CompareTo(Client obj)
         {
-            return this.Nom.CompareTo(((Client)(obj)).Nom);
+            return this.Nom.CompareTo(obj.Nom);
         }
         
 
