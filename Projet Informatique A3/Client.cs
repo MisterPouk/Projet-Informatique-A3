@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projet_Informatique_A3
 {
-    internal class Client : Personne
+    internal class Client : Personne, IComparable<Client>
     {
        
         
@@ -21,18 +21,17 @@ namespace Projet_Informatique_A3
         }
 
 
-
-
-
-
-
         public override string ToString()
         {
-            return "Nom : "+ Nom + " Prénom : " + Prenom + " Date de naissance : " + Date_de_naissance;
+            return "Nom : "+ Nom + "\n"+  "Prénom : " + Prenom + "\n" + "Date de naissance : " + Date_de_naissance + "\n" + "Adresse postale : "+ Adresse_postale + "\n" + "Adresse mail : " + Adresse_mail + "\n" +"Téléphone : " + Telephone;
             
         }
 
-
+        public int CompareTo(Client obj)
+        {
+            return this.Nom.CompareTo(obj.Nom);
+        }
+        
 
 
 

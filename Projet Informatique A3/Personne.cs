@@ -44,6 +44,12 @@ namespace Projet_Informatique_A3
             set { adresse_postale = value; }
         }
 
+        public string Ville
+        {
+            get { return adresse_postale.Split(',')[3]; }
+            
+        }
+
         public string Adresse_mail
         {
             get { return adresse_mail; }

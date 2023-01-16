@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projet_Informatique_A3
 {
-    internal class Commande
+    internal class Arbre_salarie
     {
-
-
     }
 }
