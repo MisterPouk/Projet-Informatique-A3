@@ -48,6 +48,12 @@ namespace Projet_Informatique_A3
             #endregion
 
 
+
+
+
+
+
+
             bool fin = false;
 
             int selection;
@@ -70,9 +76,11 @@ namespace Projet_Informatique_A3
 
             while(fin != true)
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("==================================");
                 Console.WriteLine("=Logiciel de gestion Transconnect=");
                 Console.WriteLine("==================================");
+                Console.ForegroundColor = ConsoleColor.White;
 
                 Console.WriteLine("Sélectionnez une option: \n" + "1) Gestion des clients \n" + "9) Quitter le programme \n");
 
@@ -185,6 +193,13 @@ namespace Projet_Informatique_A3
             {
                 Console.Write(e);
             }
+
+            
+
+
+
+
+
 
 
 
